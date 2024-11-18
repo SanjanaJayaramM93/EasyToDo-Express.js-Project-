@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title EasyTodo
+    link(rel='stylesheet', type='text/css', href='/todo.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='/main.js')
+  body
+    h1 EasyToDo
+    div(class='container')
+      div(class='heading')
+      
+      ul
+        each task in newTasks
+          li
+            span= task.taskName
+            a.button.delete-todo(data-todoid=task._id, href='/todos/'+task._id) Delete
+    form.form(action='/', method='POST')
+      input(type='text', id='', name='taskName', placeholder='e.g. Finish COMP6006 Prac')
+      button.addTaskBtn(type='submit') Add task
+
+
+
